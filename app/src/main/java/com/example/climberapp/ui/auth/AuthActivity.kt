@@ -8,8 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import com.example.climberapp.R
-import com.example.climberapp.ui.home.HomeActivity
-import com.example.climberapp.ui.pojos.User
+import com.example.climberapp.ui.classLayer.User
+import com.example.climberapp.ui.session.SessionManagement
+import com.example.climberapp.ui.shared.ActivityCalls
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -26,10 +27,15 @@ class AuthActivity : AppCompatActivity() {
 
     private lateinit var authViewModel: AuthViewModel
     private lateinit var googleSignInClient: GoogleSignInClient
+    private val session =  SessionManagement(this)
+    private val shareds =  ActivityCalls()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
+
+        session.isActive(this) //Comprueba que no hay una sesion activa
+
         initSignInButton()
         initAuthViewModel()
         initGoogleSignInClient()
@@ -46,7 +52,6 @@ class AuthActivity : AppCompatActivity() {
                 googleSignInAccount?.let { getGoogleAuthCredential(it) }
             } catch (e: ApiException) {
                 Log.e("Error onActivityResult", e.message.toString())
-                /*logErrorMessage(e.message)*/
             }
         }
     }
@@ -90,7 +95,7 @@ class AuthActivity : AppCompatActivity() {
             if (authenticatedUser.isNew) {
                 createNewUser(authenticatedUser)
             } else {
-                goToMainActivity(authenticatedUser)
+                shareds.goToHomeActivity(authenticatedUser,this)
             }
         }
     }
@@ -102,12 +107,12 @@ class AuthActivity : AppCompatActivity() {
             if (user.isCreated) {
                 Toast.makeText(this, user.name, Toast.LENGTH_SHORT).show()
             }
-            goToMainActivity(user)
+            shareds.goToHomeActivity(user,this)
         }
     }
 
-    //Llama a la Actividad principal
-    private fun goToMainActivity(user: User) {
+    /*Llama a la Actividad principal
+    fun goToMainActivity(user: User) {
         val intent = Intent(this@AuthActivity, HomeActivity::class.java)
         intent.putExtra("name", user.name)
         intent.putExtra("email", user.email)
@@ -115,5 +120,5 @@ class AuthActivity : AppCompatActivity() {
         intent.putExtra("phone", user.phone)
         startActivity(intent)
         finish()
-    }
+    }*/
 }

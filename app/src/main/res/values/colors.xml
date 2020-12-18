@@ -5,4 +5,11 @@
     <color name="colorPrimaryLight">#FBEFE2</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGreyNormal">#999999</color>
+    <color name="colorGreyLight">#C4C4C4</color>
+    <color name="colorGreyDark">#575757</color>
+    <color name="colorDefault">#f3f3f3</color>
+    f3f3f3
+
 </resources>

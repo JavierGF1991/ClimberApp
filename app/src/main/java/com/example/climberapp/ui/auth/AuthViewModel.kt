@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.climberapp.ui.pojos.User
+import com.example.climberapp.ui.classLayer.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.firestore.DocumentSnapshot
@@ -60,7 +60,6 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                 }
             } else {
                 Log.e("Error CreateUserInFirestoreIfNotExists", uidTask.exception!!.message.toString())
-                //logErrorMessage(uidTask.exception!!.message)
             }
         }
         return newUserMutableLiveData

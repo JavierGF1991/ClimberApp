@@ -1,6 +1,5 @@
-package com.example.climberapp.ui.pojos
+package com.example.climberapp.ui.classLayer
 
-import android.net.Uri
 import com.google.firebase.firestore.Exclude
 
 

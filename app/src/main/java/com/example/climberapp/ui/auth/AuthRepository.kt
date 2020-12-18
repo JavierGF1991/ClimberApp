@@ -2,7 +2,7 @@ package com.example.climberapp.ui.auth
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.climberapp.ui.pojos.User
+import com.example.climberapp.ui.classLayer.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
