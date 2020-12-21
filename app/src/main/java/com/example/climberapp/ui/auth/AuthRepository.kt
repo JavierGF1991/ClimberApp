@@ -2,6 +2,7 @@ package com.example.climberapp.ui.auth
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.example.climberapp.manager.UsersApiManager
 import com.example.climberapp.ui.classLayer.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
@@ -11,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 internal class AuthRepository {
     private val firebaseAuth = FirebaseAuth.getInstance()
+    private var apiManager = UsersApiManager()
+
     fun firebaseSignInWithGoogle(googleAuthCredential: AuthCredential?): MutableLiveData<User> { val authenticatedUserMutableLiveData = MutableLiveData<User>()
         firebaseAuth.signInWithCredential(googleAuthCredential!!)
             .addOnCompleteListener { authTask: Task<AuthResult> ->
@@ -22,7 +25,8 @@ internal class AuthRepository {
                         val name = firebaseUser.displayName
                         val email = firebaseUser.email
                         val phone = firebaseUser.phoneNumber
-                        val user = User(uid, name, email, phone)
+                        val user = User(uid, name, email, phone )
+                        apiManager.post(uid, name, email, phone )
                         user.isNew = isNewUser
                         authenticatedUserMutableLiveData.value = user
                     }

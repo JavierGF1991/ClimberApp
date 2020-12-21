@@ -25,24 +25,24 @@
                 android:layout_height="wrap_content"
                 android:text="@string/nextTrips"
                 android:textAppearance="@style/title"
-                android:fontFamily="@font/sf_font_pro"
+                android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/colorGreyDark"/>
 
-            <Spinner
+            <Spinner 
                 android:id="@+id/locationSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAppearance="@style/title"
-                android:fontFamily="@font/sf_font_pro"/>
+                android:fontFamily="@font/roboto_bold"/>
 
 
-            <View
+          <!--  <View
                 android:id="@+id/rectangle_1"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@drawable/ic_baseline_arrow_drop_down_24"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"/>-->
 
 
         </LinearLayout>

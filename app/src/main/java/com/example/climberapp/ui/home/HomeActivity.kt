@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.climberapp.R
 import com.example.climberapp.ui.adapter.RecyclerAdapterDescubre
+import com.example.climberapp.ui.classLayer.Trip
 import com.example.climberapp.ui.classLayer.User
 import com.example.climberapp.ui.models.Trips
 import com.example.climberapp.ui.session.SessionManagement
@@ -25,10 +26,6 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private var user: User? = null
     private val session =  SessionManagement(this)
-
-   /* lateinit var mRecyclerView : RecyclerView
-    val mAdapter : RecyclerAdapterDescubre = RecyclerAdapterDescubre()
-*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,32 +44,7 @@ class HomeActivity : AppCompatActivity() {
 
         user = getUserFromIntent()
         initGoogleSignInClient()
-
-       /* setUpRecyclerView()*/
-
     }
-
-
-   /* private fun setUpRecyclerView(){
-        mRecyclerView = findViewById(R.id.rvDescrubre) as RecyclerView
-        mRecyclerView.setHasFixedSize(true)
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
-        mAdapter.RecyclerAdapterDescubre(getDataTrips())
-        mRecyclerView.adapter = mAdapter
-    }
-
-    private fun getDataTrips() : MutableList<Trips>{
-
-        var trips: MutableList<Trips> = ArrayList()
-        var users: MutableList<User> = ArrayList()
-        users.add(User("AAA","AAA","AAA","AAA"))
-        trips.add(Trips("Boulder","Albarracín", "19 Sept", "https://cursokotlin.com/wp-content/uploads/2017/07/spiderman.jpg","16ºC",2, users))
-        trips.add(Trips("Clasica","Pico de la miel", "12 Sept", "https://cursokotlin.com/wp-content/uploads/2017/07/spiderman.jpg","16ºC",5, users))
-        trips.add(Trips("Desportiva","Rodellar", "21 Oct", "https://cursokotlin.com/wp-content/uploads/2017/07/spiderman.jpg","16ºC",3, users))
-        trips.add(Trips("Boulder","Tamajon", "19 Ene", "https://cursokotlin.com/wp-content/uploads/2017/07/spiderman.jpg","16ºC",1, users))
-
-        return trips
-    }*/
 
     private fun getUserFromIntent(): User? {
         val name: String? = intent.getStringExtra("name")
@@ -90,18 +62,3 @@ class HomeActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
     }
 }
-
-    /*private fun setup(email: String){
-        //Toast.makeText(this, email, Toast.LENGTH_LONG).show()
-        logout.setOnClickListener{
-            logout()
-        }
-    }*/
-
-    /*//Logout de la aplicación
-    private fun logout(){
-        FirebaseAuth.getInstance().signOut()
-        val authIntent = Intent(this, AuthActivity::class.java).apply {
-        }
-        startActivity(authIntent)
-    }*/

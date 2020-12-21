@@ -4,10 +4,11 @@ import com.google.firebase.firestore.Exclude
 
 
 class User  {
-    var uid: String? = null
-    var name: String? = null
-    var email: String? = null
-    var phone: String? = null
+
+    var  uid: String? = ""
+    var  name: String? = ""
+    var  email: String? = ""
+    var  phone: String? = ""
 
     @Exclude
     var isAuthenticated = false
@@ -24,6 +25,5 @@ class User  {
         this.name = name
         this.email = email
         this.phone = phone
-
     }
 }
