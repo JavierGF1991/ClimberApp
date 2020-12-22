@@ -59,7 +59,9 @@ class AuthActivity : AppCompatActivity() {
     //Instancia Boton inicia de sesión
     private fun initSignInButton() {
         val googleSignInButton = findViewById<GoogleSignInButton>(R.id.googleButton)
-        googleSignInButton.setOnClickListener { signIn() }
+        googleSignInButton.setOnClickListener {
+            signIn()
+        }
     }
 
     private fun initAuthViewModel() {
@@ -100,7 +102,7 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
-    //CReacion de un nuevo Usuario
+    //Creacion de un nuevo Usuario
     private fun createNewUser(authenticatedUser: User) {
         authViewModel.createUser(authenticatedUser)
         authViewModel.createdUserLiveData?.observe(this) { user ->
