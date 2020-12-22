@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">ClimberApp</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_discover">Descrubre</string>
+    <string name="title_publish">Publicar</string>
+    <string name="title_profile">Mi perfil</string>
+    <string name="prefs_file">com.example.climberapp.PREFERENCE_FILE_KEY</string>
+
+    <!--Home fragment-->
+    <string name="nextTrips">"Próximas salidas en "</string>
+
+        <!--Barra botones tipo de escalada-->
+        <string name="todas">Todas</string>
+        <string name="proximofinde">Próximo finde</string>
+        <string name="boulder">Boulder</string>
+        <string name="deportiva">Deportiva</string>
+        <string name="rocodromo">Rocódromo</string>
+        <string name="clasica">Clásica</string>
 </resources>

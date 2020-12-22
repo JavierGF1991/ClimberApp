@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "80244723713",
+    "project_id": "climberapp-cab9e",
+    "storage_bucket": "climberapp-cab9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80244723713:android:2e4453a4e4fc776c8f7000",
+        "android_client_info": {
+          "package_name": "com.example.climberapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "80244723713-49gdq4j5m0udgdubgpqeg69su4gt8a7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsp9pxu5oZ7LdLLJsKwcdzBtOOyMu9gSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80244723713-49gdq4j5m0udgdubgpqeg69su4gt8a7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
