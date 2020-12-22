@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.climberapp.R
+import com.example.climberapp.manager.SpinnerApiManager
 import com.example.climberapp.manager.TripsApiManager
 import com.example.climberapp.ui.adapter.RecyclerAdapterDescubre
 
@@ -22,6 +25,7 @@ class HomeFragment : Fragment() {
     private lateinit var mRecyclerView : RecyclerView
     private  var mAdapter = RecyclerAdapterDescubre()
     private var tripsApiManager = TripsApiManager()
+    private var spinnerApiManager = SpinnerApiManager()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,6 +73,12 @@ class HomeFragment : Fragment() {
             changeColor(btRocodromo, button)
             setUpRecyclerView(root,"Rocodromo")
         }
+        val spinner: Spinner = root.findViewById(R.id.locationSpinner)
+
+        val lista = listOf("1","2","3","4")
+
+        val adaptador = ArrayAdapter(requireContext(), R.layout.style_spinner1, spinnerApiManager.getComunidades())
+        spinner.adapter = adaptador
 
         return root
     }
@@ -83,15 +93,13 @@ class HomeFragment : Fragment() {
 
     private fun setUpRecyclerView(root: View, action: String){
         if(action == "Todas")
-            mAdapter.RecyclerAdapterDescubre( tripsApiManager.get(mAdapter))
+            mAdapter.RecyclerAdapterDescubre(tripsApiManager.get(mAdapter))
         else
-            mAdapter.RecyclerAdapterDescubre( tripsApiManager.getByParameters(mAdapter, action))
+            mAdapter.RecyclerAdapterDescubre(
+                tripsApiManager.getByParameters(mAdapter, action))
         mRecyclerView = root.findViewById(R.id.rvDescrubre)
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.layoutManager = LinearLayoutManager(activity)
         mRecyclerView.adapter = mAdapter
     }
-
-
-
 }

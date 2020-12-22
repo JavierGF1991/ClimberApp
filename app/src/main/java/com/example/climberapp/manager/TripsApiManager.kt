@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import com.example.climberapp.ui.adapter.RecyclerAdapterDescubre
 import com.example.climberapp.ui.classLayer.Trip
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
@@ -22,7 +23,7 @@ class TripsApiManager {
                             document["city"] as String?,
                             document["type"] as String?,
                             document["zone"] as String?,
-                            document["date"] as String?,
+                            document["date"] as Timestamp,
                             document["photo"] as String?,
                             document["degrees"] as String?,
                             document["vacancies"] as String?,
@@ -47,7 +48,7 @@ class TripsApiManager {
                         document["city"] as String?,
                         document["type"] as String?,
                         document["zone"] as String?,
-                        document["date"] as String?,
+                        document["date"] as Timestamp,
                         document["photo"] as String?,
                         document["degrees"] as String?,
                         document["vacancies"] as String?,
@@ -68,7 +69,7 @@ class TripsApiManager {
         trips.clear()
         db.collection("Trips").whereEqualTo("date",  sumarRestarDiasFecha() ).get().addOnSuccessListener { documents ->
             for (document in documents) {
-                trips.add((Trip(document["city"] as String?, document["type"] as String?, document["zone"] as String?, document["date"] as String?, document["photo"] as String?, document["degrees"] as String?, document["vacancies"] as String?, document["people"] as String?)))
+                trips.add((Trip(document["city"] as String?, document["type"] as String?, document["zone"] as String?, document["date"] as Timestamp, document["photo"] as String?, document["degrees"] as String?, document["vacancies"] as String?, document["people"] as String?)))
             }
             mAdapter.notifyDataSetChanged();
         }
@@ -84,5 +85,7 @@ class TripsApiManager {
         Log.i("fecha", calendar.time.toString())// numero de días a añadir, o restar en caso de días<0)
         return calendar.time
     }
+
+
 
 }

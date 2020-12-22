@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/colorDefault">
+    android:background="@color/colorDefault"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <!--  <View
+          android:id="@+id/rectangle_1"
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+          android:background="@drawable/ic_baseline_arrow_drop_down_24"
+          android:layout_gravity="center"/>-->
+
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"        >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp">
 
             <TextView
                 android:id="@+id/nextTrips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
                 android:text="@string/nextTrips"
                 android:textAppearance="@style/title"
-                android:fontFamily="@font/roboto_bold"
-                android:textColor="@color/colorGreyDark"/>
+                android:textColor="@color/colorGreyDark"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Spinner 
+            <Spinner
                 android:id="@+id/locationSpinner"
+                android:background="@drawable/style_spinner1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_bold"
                 android:textAppearance="@style/title"
-                android:fontFamily="@font/roboto_bold"/>
-
-
-          <!--  <View
-                android:id="@+id/rectangle_1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/ic_baseline_arrow_drop_down_24"
-                android:layout_gravity="center"/>-->
-
-
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="@+id/nextTrips"
+                app:layout_constraintStart_toEndOf="@+id/nextTrips"
+                app:layout_constraintTop_toTopOf="@+id/nextTrips" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
             android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp">
 
@@ -63,95 +75,95 @@
                     android:id="@+id/btTodas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="11dp"
-                    android:paddingStart="11dp"
-                    android:text="@string/todas"
-                    android:background="@color/colorBlack"
-                    android:textColor="@color/colorWhite"
                     android:layout_marginEnd="4dp"
+                    android:background="@color/colorBlack"
                     android:fontFamily="@font/sf_font_pro"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/todas"
                     android:textAllCaps="false"
-                    android:textSize="16dp"
-                    android:stateListAnimator="@null"/>
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/btProximoFinde"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="11dp"
-                    android:paddingStart="11dp"
-                    android:text="@string/proximofinde"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorGreyNormal"
-                    android:layout_marginEnd="4dp"
                     android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/sf_font_pro"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/proximofinde"
                     android:textAllCaps="false"
-                    android:textSize="16dp"
-                    android:stateListAnimator="@null"/>
+                    android:textColor="@color/colorGreyNormal"
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/btBoulder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="11dp"
-                    android:paddingStart="11dp"
-                    android:text="@string/boulder"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorGreyNormal"
-                    android:layout_marginEnd="4dp"
                     android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/sf_font_pro"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/boulder"
                     android:textAllCaps="false"
-                    android:textSize="16dp"
-                    android:stateListAnimator="@null"/>
+                    android:textColor="@color/colorGreyNormal"
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/btDeportiva"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="11dp"
-                    android:paddingStart="11dp"
-                    android:text="@string/deportiva"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorGreyNormal"
-                    android:layout_marginEnd="4dp"
                     android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/sf_font_pro"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/deportiva"
                     android:textAllCaps="false"
-                    android:textSize="16dp"
-                    android:stateListAnimator="@null"/>
+                    android:textColor="@color/colorGreyNormal"
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/btRocodromo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="11dp"
-                    android:paddingStart="11dp"
-                    android:text="@string/rocodromo"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorGreyNormal"
-                    android:layout_marginEnd="4dp"
                     android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/sf_font_pro"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/rocodromo"
                     android:textAllCaps="false"
-                    android:textSize="16dp"
-                    android:stateListAnimator="@null"/>
+                    android:textColor="@color/colorGreyNormal"
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/btClasica"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="11dp"
-                    android:paddingStart="11dp"
-                    android:text="@string/clasica"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorGreyNormal"
                     android:layout_marginStart="4dp"
+                    android:background="@color/colorWhite"
                     android:fontFamily="@font/sf_font_pro"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/clasica"
                     android:textAllCaps="false"
-                    android:textSize="16dp"
-                    android:stateListAnimator="@null"/>
+                    android:textColor="@color/colorGreyNormal"
+                    android:textSize="16sp" />
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -160,10 +172,8 @@
             android:id="@+id/rvDescrubre"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
-
+            android:paddingBottom="16dp" />
     </LinearLayout>
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
